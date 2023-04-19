@@ -37,32 +37,45 @@ void setup() {
 
 // Waits for motion, detects motion type, sends motion to a Google Sheet using IFTTT
 void loop() {
+  carrier.display.fillScreen(0xFFFF);
   if(carrier.Light.gestureAvailable()){
     uint8_t gesture = carrier.Light.readGesture();
     Serial.print("Gesture: ");
     if(gesture == UP){
       Serial.println("UP");
+      carrier.display.fillScreen(0xF800);
       Serial.println("Sending IFTTT messages");
       callWebhook(IFTTT_EVENT,IFTTT_KEY,"UP"); // IFTTT call
       Serial.println("Sent");
+      delay(1000);
+      carrier.display.fillScreen(0xFFFF);
     }
     if(gesture == DOWN){
       Serial.println("DOWN");
+      carrier.display.fillScreen(0xF800);
       Serial.println("Sending IFTTT messages");
       callWebhook(IFTTT_EVENT,IFTTT_KEY, "DOWN"); // IFTTT call
       Serial.println("Sent");
+      delay(1000);
+      carrier.display.fillScreen(0xFFFF);
     }
     if(gesture == RIGHT){
       Serial.println("RIGHT");
+      carrier.display.fillScreen(0xF800);
       Serial.println("Sending IFTTT messages");
       callWebhook(IFTTT_EVENT,IFTTT_KEY, "RIGHT"); // IFTTT call
       Serial.println("Sent");
+      delay(1000);
+      carrier.display.fillScreen(0xFFFF);
     }
     if(gesture == LEFT){
       Serial.println("LEFT");
+      carrier.display.fillScreen(0xF800);
       Serial.println("Sending IFTTT messages");
       callWebhook(IFTTT_EVENT,IFTTT_KEY, "LEFT"); // IFTTT call
       Serial.println("Sent");
+      delay(1000);
+      carrier.display.fillScreen(0xFFFF);
     }
   }
 }
